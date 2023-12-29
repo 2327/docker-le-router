@@ -1,0 +1,16 @@
+---
+version: '3'
+
+services:
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./site.conf:/etc/nginx/conf.d
+    expose:
+      - "80"
+    networks:
+      - router_web
+
+networks:
+  router_web:
+    external: true
